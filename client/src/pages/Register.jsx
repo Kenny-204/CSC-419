@@ -111,7 +111,7 @@ export default function Register() {
       const embedding = averageEmbeddings(samples);
 
       // 3. POST to backend
-      await axios.post("/api/students", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/students`, {
         name: form.name.trim(),
         matricNumber: form.matricNumber.trim(),
         courseCode: form.courseCode.trim(),

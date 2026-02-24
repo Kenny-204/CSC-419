@@ -19,7 +19,7 @@ export default function Students() {
     setLoading(true)
     setBackendDown(false)
     try {
-      const { data } = await axios.get('/api/students?includeStats=true')
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/students?includeStats=true`)
       setStudents(Array.isArray(data) ? data : [])
     } catch {
       setBackendDown(true)
@@ -33,7 +33,7 @@ export default function Students() {
     if (!confirm(`Remove ${name}? This will also delete their attendance history.`)) return
     setDeleting(id)
     try {
-      await axios.delete(`/api/students/${id}`)
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/students/${id}`)
       setStudents(prev => prev.filter(s => s.id !== id))
     } catch {
       alert('Could not delete student. Is the backend running?')
