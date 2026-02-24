@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ── Middleware ─────────────────────────────────────────────────
-app.use(cors({ origin: "https://csc-419-xi.vercel.app" }));
+app.use(cors({ origin: "https://csc-419-xi.vercel.app/" }));
 app.use(express.json({ limit: "2mb" })); // embeddings are ~4KB as JSON
 
 // ── Routes ─────────────────────────────────────────────────────
