@@ -5,7 +5,7 @@
  * samples → averages them into one embedding → POSTs to backend.
  */
 
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import {
   // captureFaceSamples,
@@ -53,6 +53,7 @@ export default function Register() {
       await videoRef.current.play();
       setStep("camera");
       startDrawLoop();
+    // eslint-disable-next-line no-unused-vars
     } catch (err) {
       setStatus({
         type: "danger",
@@ -87,7 +88,7 @@ export default function Register() {
       // 1. Capture samples with progress feedback
       const samples = [];
       for (let i = 0; i < CAPTURE_SAMPLES; i++) {
-        const { captureFaceSamples: _, ...rest } =
+        const { captureFaceSamples: _ } =
           await import("../utils/faceApi");
         // Inline capture with progress
         const { getEmbeddingFromVideo } = await import("../utils/faceApi");

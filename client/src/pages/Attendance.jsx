@@ -175,6 +175,7 @@ export default function Attendance() {
       await axios.patch(
         `${import.meta.env.VITE_API_URL}/api/sessions/${sessionRef.current.id}/end`,
       );
+    // eslint-disable-next-line no-empty, no-unused-vars
     } catch (_) {}
     sessionRef.current = null;
     setSession(null);
